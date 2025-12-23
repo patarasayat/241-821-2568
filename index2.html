@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container.item {
+             background-color: lightblue;
+        }
+        .button{
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+         .button.active{
+            background-color: blue;
+         }
+         .button.warning{
+            background-color: red;
+         }
+         .item.button.warning{
+            background-color: lightblue;
+         }
+         .item1 + .item2 {
+            background-color: lightblue;
+         }
+            input[type="text"] {
+            border: 2px; solid green;
+            margin-bottom: 10px;
+         }
+         .button.focus{
+            background-color: yellow;
+         }
+         .button{
+            background-color: blue;
+            clear: white;
+            padding: 10 px 20px;
+         }
+         .button:hover{
+            background-color: green;
+         }
+         .button:focus {
+
+         }
+
+    </style>
+</head>
+<body>
+    <div class = "container">
+        Container content 
+        <div class ="item">
+        Item content
+        </div>
+    </div>
+    <div class = "footer-container">
+        Container content 
+        <div class ="item">
+         Item content
+        </div>
+    </div>
+    <button class="button">click Me </button>
+    <button class="button active">Delete </button> 
+     <button class="button warning">Warning </button>
+
+      <div class="item1">Item 1 </div>
+      <div class="item2">Item2 </div>
+
+      <input type="text" name="sample-input">
+      <input type="text" name="another-input">
+      <input type="text" name="number>
+
+      <input type="text">
+      <!-- :hover -->
+       <button class"button">click Me!</button>
+</body>
+</html>
