@@ -1,48 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<style>
-    @font-face {
-        font-family: 'Kanit';
-        src: url(.Kanit?Kanit-Regular.ttf);
-    }
-
-    body{
-        background-color: gray;
-        font-family:'Kanit';
-    }
-    #register-from{
-        color: white;
-        padding-left: 20px;
-        margin-left: 20px;
-        padding-right: 20px;
-        border: 1px solid black;
-    }
-    .from-control{
-        border : 2px solid black;
-        margin-bottom: 10px;
-    }
-</style>
-    <!-- ส่วนนี้จะไม่แสดงผลบนหน้าเว็บ Browser -->
 </head>
 <body>
-    <!-- ส่วนนี้จะไม่แสดงผลบนหน้าเว็บ Browser -->
-     <h1 id ="register-from">Register Formxxx </h1>
-     ชื่อ : <input class="from-control" type ="text" name=""name>
-     นามสกุล : <input type="text" name="sername"><br>
-     อายุ : <input type ="number" name="age" min ="0" max="150"><br>
-     เพศ :
-     <input  type ="radio" name="gender" value="male">ชาย
-     <input  type ="radio" name="gender" value="female">หญิง
-     งานอดิเรก:
-     <input  type ="checkbox" name="hobby" value="reading"> อ่านหนังสือ
-     <input type ="checkbox" name="hobby" value="traveling"> เที่ยว
-     <input type ="checkbox" name="hobby" value="sport">เล่นกีฬา
-    คำอธิบายตัวเอง:
-    <textarea name="description" rows="4" coler="50"></textarea>
-    <input type = "submit" value="Submit">
+    ขื่อ: <input
+         id = "fname"
+         type = "text"
+         name =  "fname"
+         value = "John">
+    นามสกุล : <input
+         id = "lname"
+         type = "text"
+         name =  "lname"
+         value = "Doe">
+    
+    <script> 
+          //Select DOM
+          const fanameInput = document.getElementById('fname');
+          console.log(fanameInput);
+          for (let i = 0; i < fanameInput.length; i++) {
+            console.log(fanameInput[i].value);
+          }
 
-</body>
+    </script>
+
+         ขื่อ: <input
+         id = "fname"
+         type = "text"
+         name =  "fname"
+         value = "John">
+    <script> 
+          //Select DOM
+          const fnameInput = document.querySelect('input[name="fname"]');
+          console.log(fanameInput);
+    </script>
+
+    งานอดิเรก:
+    <input  type ="checkbox" name="hobby" value="Football">Football
+    <input type ="checkbox" name="hobby" value="basketball">Basketball
+    <input type ="checkbox" name="hobby" value="tennis">Tennis      
+    <script> 
+         let checkboxs = document.qureSelectorAll('input[name="hobby"]');
+         for (let i = 0; i < checkboxs.length; i++) {
+            console.log(checkboxs[i].value);
+         }
+    </script>
+
+    <button onclick="userclicked()">Submit</button>
+    <div onclick="devCleck()" >dev clicked</div>
+    <script>
+        function userclicked() {
+            alert("User clicked the button");
+        }
+        function devCleck() {
+            alert("Deverloper clicked the div!");
+        }
+    </script>
+        <body>
+      เพศ:
+      <input type="radio" name="gender" value="male" onchange="onchangeGendder()" checked ="true" >ชาย
+      <input type="radio" name="gender" value="female" onchange="onchangeGendder()">หญิง
+      <script>
+        function onchangeGendder() {
+        //select gender ทุก input ออกมา
+            let genderRadios = document.querySelectorAll('input[name="gender"]');
+           
+        //เช็ค ตัวไหนมี check อยู่ให้เอา value มาแสดง
+            for (let i = 0; i < genderRadios.length; i++) {
+                if (genderRadios[i].checked) {
+                    console.log("เพศที่เลือก: " + genderInput[i].value);
+                }
+            }
+      
+       }
+  
+        </script>
+ </body>
 </html>
