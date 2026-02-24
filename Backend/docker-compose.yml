@@ -10,7 +10,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: webdb
     ports:
-      - "8700:3306"
+      - "8821:3306"
     volumes:
       - mysql_data_821:/var/lib/mysql
     networks:
@@ -21,13 +21,13 @@ services:
     image: phpmyadmin:latest
     container_name: phpmyadmin_821
     environment:
-      PMA_HOST: db # ใช้ชื่อ Service "db" แทนชื่อ Container เพื่อความยืดหยุ่นในระบบ Network
+      PMA_HOST: db # ใช้ชื่อ Service "db" แทนชื่อ Container fเพื่อความยืดหยุ่นในระบบ Network
       PMA_PORT: 3306
       PMA_USER: root
       PMA_PASSWORD: root
       UPLOAD_LIMIT: 64M # เพิ่มลิมิตการอัปโหลดไฟล์ SQL
     ports:
-      - "8701:80"
+      - "8822:80"
     depends_on:
       - db
     networks:
