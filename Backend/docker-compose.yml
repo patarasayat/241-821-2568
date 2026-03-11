@@ -10,7 +10,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: webdb
     ports:
-      - "8822:3306"
+      - "8821:3306"
     volumes:
       - mysql_data_821:/var/lib/mysql
     networks:
@@ -27,7 +27,7 @@ services:
       PMA_PASSWORD: root
       UPLOAD_LIMIT: 64M # เพิ่มลิมิตการอัปโหลดไฟล์ SQL
     ports:
-      - "8821:80"
+      - "8822:80"
     depends_on:
       - db
     networks:

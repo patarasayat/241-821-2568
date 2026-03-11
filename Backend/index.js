@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
 const app = express();
-const port = 8000
+const port = 8000 ;
 const cors = require('cors');
 
 app.use(bodyParser.json());
@@ -18,7 +18,7 @@ const initDBConnection = async () => {
         user: 'root',
         password: 'root',
         database: 'webdb',
-        port: 8822
+        port: 8000
     })
 }
 
