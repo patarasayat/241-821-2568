@@ -1,4 +1,57 @@
+const BASE_URL = 'http://localhost:8000';
+
+let mode ='CREATE';
+let selectedID = ''
+
+window.onlode = async () => {
+    const urIParms = new URLSearchParams(window.location.search);
+    const id = urIParms.get('id');
+    console.log('id',id);
+    if (id) {
+        mode ='EDIT';
+        selectedID = id;
+
+        1.//ดึงข้อมูล
+        try{
+            const response = await axios.grt(`${BASE_URL}/user/${id}`);
+            const user = response.data;
+            console.log('user',user);
+
+        2.//
+        let firstNameDOM = document.querySelector('input[name=firstname]');
+    let lastNameDOM = document.querySelector('input[name=lastname]');
+    let ageDOM = document.querySelector('input[name=age]');
+    let descriptionDOM = document.querySelector('textarea[name=description]');
+
+     firstNameDOM.value = user.firstname;
+     lastNameDOM.value = user.lastname;
+     ageDOM.value = user.age;
+     descriptionDOM.value = user.description
+
+    let genderDOM = document.querySelectorAll('input[name=gender]:checked')
+    let interestDOMs = document.querySelectorAll('input[name=interests]:checked')
+     
+    for (let i =0; i < genderDOM.length; i++){
+        if (genderDOM[i].value == user.gender){
+            genderDOM[i].checked = true;
+        }
+    }
+    for (let i =0; i < interestDOMs.length; i++){
+        if (user.interests.includes(interestDOMs[i].value)) {
+            interestDOMs[i].checked = true;
+        }
+    }
+
+    }catch(error){
+        console.log('erroe',error);
+
+        }
+    }
+
+}
+
 const validateData = (userData) => {
+
     let errors = [];
     if (!userData.firstname) {
         errors.push('กรุณากรอกชื่อ');
@@ -55,6 +108,15 @@ const submitData = async () => {
                    message: 'กรอกข้อมูลไม่ครบถ้วน',
                   errors: errors
               }
+          }
+
+          if (mode == "CREATE") {
+            const response = await axios.post(`${BASE_URL}/users`, userData);
+             console.log('response', response.data);
+          } else {
+            const response = await axios.put(`${BASE_URL}/users/${selectedID}`,userData);
+            message = 'แก้ไขข้อมูลสำเร็จ';
+            console.log('response',response.data);
           }
 
         const response = await axios.post('http://localhost:8000/users', userData)
